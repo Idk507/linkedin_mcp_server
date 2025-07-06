@@ -148,7 +148,5 @@ get_authentication_status()                          # Check auth status
 
 This project is licensed under the [MIT License](LICENSE).
 
-```
 
-Let me know if you'd like me to generate the actual `.md` file for download.
 ```
