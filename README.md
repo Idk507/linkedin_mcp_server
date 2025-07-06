@@ -1,5 +1,4 @@
 
-```markdown
 # LinkedIn MCP Server
 
 A Python-based server that provides LinkedIn functionality through the MCP (Message Control Protocol) using the `linkedin-api` and `fastmcp` libraries.
