@@ -1,101 +1,155 @@
-LinkedIn MCP Server
-A Python-based server that provides LinkedIn functionality through the MCP (Message Control Protocol) using the linkedin-api and fastmcp libraries. This project allows users to authenticate with LinkedIn, retrieve profile information, fetch posts, search for jobs, get job details, search for people, and retrieve connections.
-Project Structure
-linkedin_mcp/
+
+```markdown
+# LinkedIn MCP Server
+
+A Python-based server that provides LinkedIn functionality through the MCP (Message Control Protocol) using the `linkedin-api` and `fastmcp` libraries.
+
+This project allows users to:
+- Authenticate with LinkedIn
+- Retrieve profile information
+- Fetch posts
+- Search for jobs and get job details
+- Search for people
+- Retrieve connections
+
+---
+
+## 📁 Project Structure
+
+```
+
+linkedin\_mcp/
 ├── config/
-│   └── linkedin_config.py
+│   └── linkedin\_config.py
 ├── services/
-│   ├── __init__.py
-│   ├── linkedin_client.py
-│   ├── profile_service.py
-│   ├── posts_service.py
-│   ├── jobs_service.py
-│   ├── people_service.py
-│   └── connections_service.py
+│   ├── **init**.py
+│   ├── linkedin\_client.py
+│   ├── profile\_service.py
+│   ├── posts\_service.py
+│   ├── jobs\_service.py
+│   ├── people\_service.py
+│   └── connections\_service.py
 ├── tools/
-│   ├── __init__.py
-│   ├── auth_tools.py
-│   ├── profile_tools.py
-│   ├── posts_tools.py
-│   ├── jobs_tools.py
-│   ├── people_tools.py
-│   ├── connections_tools.py
-│   └── status_tools.py
+│   ├── **init**.py
+│   ├── auth\_tools.py
+│   ├── profile\_tools.py
+│   ├── posts\_tools.py
+│   ├── jobs\_tools.py
+│   ├── people\_tools.py
+│   ├── connections\_tools.py
+│   └── status\_tools.py
 ├── main.py
 ├── requirements.txt
 └── README.md
 
+````
 
-config/: Contains configuration and logging setup.
-services/: Core LinkedIn functionality split into logical service classes.
-tools/: MCP tool definitions that interface with services.
-main.py: Entry point for running the server or test mode.
-requirements.txt: Lists required Python packages.
+### Folder Descriptions
 
-Features
+- **`config/`**: Contains configuration and logging setup.
+- **`services/`**: Core LinkedIn functionality split into logical service classes.
+- **`tools/`**: MCP tool definitions that interface with services.
+- **`main.py`**: Entry point for running the server or test mode.
+- **`requirements.txt`**: Lists required Python packages.
 
-Authentication: Authenticate with LinkedIn using email and password.
-Profile Retrieval: Fetch profile information for a specific user or the authenticated user.
-Post Retrieval: Get posts from a LinkedIn profile.
-Job Search: Search for job postings with optional location filtering.
-Job Details: Retrieve detailed information about specific job postings.
-People Search: Search for people on LinkedIn based on keywords.
-Connections: Retrieve connections for a profile.
-Status Check: Check the current authentication status.
+---
 
-Installation
+## 🚀 Features
 
-Clone the repository or extract the project files.
-Ensure Python 3.6+ is installed.
-Install dependencies:pip install -r requirements.txt
+- **Authentication**: Authenticate with LinkedIn using email and password.
+- **Profile Retrieval**: Fetch profile info for a specific or authenticated user.
+- **Post Retrieval**: Get posts from a LinkedIn profile.
+- **Job Search**: Search for job postings (optional location filter).
+- **Job Details**: Retrieve detailed info about specific jobs.
+- **People Search**: Search for people on LinkedIn using keywords.
+- **Connections**: Retrieve connections for a profile.
+- **Status Check**: Check the current authentication status.
 
+---
 
-(Optional) Set up a virtual environment:python -m venv venv
+## 📦 Installation
+
+1. Clone the repository or extract the project files.
+2. Ensure Python 3.6+ is installed.
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+````
+
+### (Optional) Set up a virtual environment
+
+```bash
+python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
+---
 
+## ⚙️ Usage
 
-Usage
-Running the Server
-To start the MCP server:
+### Running the Server
+
+```bash
 python main.py
+```
 
-This will start the server, which listens for MCP client connections. You can then connect an MCP client to use the LinkedIn tools.
-Test Mode
-To run in test mode and see available tools:
+This starts the MCP server to listen for client connections.
+
+### Test Mode
+
+```bash
 python main.py test
+```
 
-This displays a list of available tools and example usage, such as:
+This will display available tools and sample usage like:
+
+```python
 authenticate_linkedin('your_email@example.com', 'your_password')
 search_linkedin_jobs('python developer', 'San Francisco')
 get_profile_info()
+```
 
-Available Tools
+---
 
-authenticate_linkedin(email, password): Authenticate with LinkedIn.
-get_profile_info(profile_id=None): Get profile information.
-get_profile_posts(profile_id=None, limit=10): Retrieve posts from a profile.
-search_linkedin_jobs(keywords, location=None, limit=25): Search for jobs.
-get_job_details(job_id): Get details for a specific job.
-search_linkedin_people(keywords, limit=10): Search for people.
-get_linkedin_connections(urn_id=None, limit=50): Retrieve connections.
-get_authentication_status(): Check authentication status.
+## 🛠️ Available Tools
 
-Requirements
+```python
+authenticate_linkedin(email, password)               # Authenticate with LinkedIn
+get_profile_info(profile_id=None)                    # Get profile information
+get_profile_posts(profile_id=None, limit=10)         # Retrieve posts from a profile
+search_linkedin_jobs(keywords, location=None, limit=25)  # Search for jobs
+get_job_details(job_id)                              # Get job details
+search_linkedin_people(keywords, limit=10)           # Search for people
+get_linkedin_connections(urn_id=None, limit=50)      # Retrieve connections
+get_authentication_status()                          # Check auth status
+```
 
-Python 3.6+
-Packages listed in requirements.txt:
-fastmcp
-linkedin-api
+---
 
+## 📋 Requirements
 
+* Python 3.6+
+* Packages listed in `requirements.txt`:
 
-Notes
+  * `fastmcp`
+  * `linkedin-api`
 
-Ensure you have valid LinkedIn credentials for authentication.
-The linkedin-api library may have rate limits or require specific permissions.
-All operations require authentication first via authenticate_linkedin.
-The project is modular, with services handling core functionality and tools providing MCP interfaces.
+---
 
-License
-This project is licensed under the MIT License.
+## 🔐 Notes
+
+* Ensure you have valid LinkedIn credentials for authentication.
+* The `linkedin-api` library may enforce rate limits or permissions.
+* All operations require prior authentication via `authenticate_linkedin`.
+* Project is modular: services handle core logic, tools expose MCP interfaces.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+```
+
+Let me know if you'd like me to generate the actual `.md` file for download.
+```
